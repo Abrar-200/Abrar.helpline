@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abrar's Helpline</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header {
+            position: relative;
+            width: 100%;
+            text-align: center;
+            background-color: #f8f9fa;
+            padding: 20px 0;
+        }
+        .header h1 {
+            margin: 0;
+            color: red;
+            font-size: 2em;
+        }
+        .menu {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            cursor: pointer;
+        }
+        .menu ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: none;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+        }
+        .menu ul li {
+            padding: 5px 0;
+            cursor: pointer;
+        }
+        .menu ul li:hover {
+            background-color: #575757;
+        }
+        .menu.active ul {
+            display: block;
+        }
+        .content img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+        .submenu {
+            display: none;
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0 20px;
+        }
+        .submenu li {
+            padding: 5px 0;
+            color: #333;
+        }
+    </style>
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.menu');
+            menu.classList.toggle('active');
+            const expanded = menu.classList.contains('active');
+            menu.setAttribute('aria-expanded', expanded);
+        }
+
+        function toggleSubmenu(event) {
+            const submenu = event.target.nextElementSibling;
+            if (submenu) {
+                submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <div class="menu" onclick="toggleMenu()" aria-expanded="false" aria-controls="menu-list">
+            ☰ Menu
+            <ul id="menu-list">
+                <li onclick="toggleSubmenu(event)">Police Station
+                    <ul class="submenu">
+                        <li>Police Station 1</li>
+                        <li>Police Station 2</li>
+                        <li>Police Station 3</li>
+                    </ul>
+                </li>
+                <li onclick="toggleSubmenu(event)">Fire Service
+                    <ul class="submenu">
+                        <li>Fire Service 1</li>
+                        <li>Fire Service 2</li>
+                        <li>Fire Service 3</li>
+                    </ul>
+                </li>
+                <li onclick="toggleSubmenu(event)">RAB
+                    <ul class="submenu">
+                        <li>RAB Station 1</li>
+                        <li>RAB Station 2</li>
+                        <li>RAB Station 3</li>
+                    </ul>
+                </li>
+                <li onclick="toggleSubmenu(event)">Ambulances
+                    <ul class="submenu">
+                        <li>Ambulance Service 1</li>
+                        <li>Ambulance Service 2</li>
+                        <li>Ambulance Service 3</li>
+                    </ul>
+                </li>
+                <li onclick="toggleSubmenu(event)">Hospitals
+                    <ul class="submenu">
+                        <li>Hospital 1</li>
+                        <li>Hospital 2</li>
+                        <li>Hospital 3</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <h1>Abrar's Helpline</h1>
+    </div>
+    <div class="content">
+        <img src="your-image-url.jpg" alt="A helpful image related to Abrar's Helpline">
+    </div>
+</body>
+</html>
